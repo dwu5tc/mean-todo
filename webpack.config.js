@@ -47,25 +47,26 @@ var webpack = require('webpack');
 var path = require('path');
 
 // module.exports???
-// learn webpack
+// learn webpack???
+// check each of these???
 module.exports = {
 	devtool: 'inline-source-map',
 	entry: [
 		// what???
-		require.resolve('webpack-dev-server/client') + '?/',
-		require.resolve('webpack/hot/dev-server')
-		'/.src'
+		'webpack-dev-server/client?http://127.0.0.1:8080/',
+		'webpack/hot/only-dev-server',
+		'./src'
 	],
 	output: {
+		// __dirname and path.join???
 		path: path.join(__dirname, 'public'),
 		filename: 'bundle.js'
 	},
 	resolve: {
-		modules: ['node_nodules', 'src'],
-		extensions: ['.js']
+		modulesDirectories: ['node_modules', 'src'],
+		extension: ['', '.js']
 	},
-	module: {
-		rules: [
+	module: [
 		{
 			test: /\.js$/,
 			exclude: /node_modules/,
@@ -74,8 +75,7 @@ module.exports = {
 				presets: ['es2015']
 			}
 		}
-		]
-	},
+	],
 	plugins: [
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoErrorsPlugin()
