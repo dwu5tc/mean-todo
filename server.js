@@ -10,9 +10,10 @@ app.all('/*', function(req, res) {
 			<head>\
 				<meta charset="UTF-8">\
 				<title>Mean Todo App</title>\
+				<base href="/">\
 			</head>\
 			<body>\
-				<h1>Hello World</h1>\
+				<div ui-view></div>\
 				<script src="bundle.js"></script>\
 			</body>\
 		</html>\

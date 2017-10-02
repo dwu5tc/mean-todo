@@ -1,0 +1,2 @@
+npm run dev doesn't work on windows??? idk
+why are all these "loaders" necessary???
